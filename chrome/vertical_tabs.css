@@ -24,15 +24,22 @@ See the above repository for updates as well as full license text. */
 }
 .tabbrowser-tab{
   min-width: 0.1px !important; /* This is to prevent Firefox from thinking that tabs would overflow. Still, if such a situation ever occurs it will prevent the ability to scroll tabs with mouse */
+  margin-inline: 0 !important;
+}
+.tab-label-container[pinned]{
+  margin-inline-start: 5.5px;
 }
 :root:not([customizing]) #tabbrowser-tabs{
-  position: absolute;
+  position: absolute !important;
   height: 100vh;
   left: 0;
   padding-top: var(--uc-navbar-height);
   width: var(--uc-vertical-tabs-width);
-  background-color: var(--lwt-accent-color);
+  background-color: var(--toolbar-bgcolor);
   contain: size;
+}
+:root[lwtheme]:not([customizing]) #tabbrowser-tabs{
+  background-color: var(--lwt-accent-color);
 }
 @media (-moz-bool-pref: "userchrome.vertical-tabs.on-right.enabled"){
   #PersonalToolbar,
@@ -101,4 +108,9 @@ scrollbox[orient="horizontal"]{
 #scrollbutton-up,
 #scrollbutton-down{
   display: var(--uc-scrollbutton-display,initial);
+}
+#titlebar{
+  will-change: unset !important;
+  transition: none !important;
+  opacity: 1 !important;
 }
